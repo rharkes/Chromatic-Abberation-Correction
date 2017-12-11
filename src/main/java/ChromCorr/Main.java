@@ -11,10 +11,22 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 
 public class Main {
-
     private static File[] files = new File[3];
     private static double[][] Q = new double[3][2];
-
+    
+    public static void init() {
+        Q = new double[3][2];
+        Q[0][0] = 1; Q[1][1] = 1;
+        String lastaffine = ChromCorr.ij.prefs().get("ChromCorr_AffinePath", null);
+        if (lastaffine != null){
+            ChromCorr.log.info("Open " + lastaffine);
+            File a = new File(lastaffine);
+            if (a.canRead()){
+                Main.OpenAffine(a);
+            }
+        }
+    }
+    
     public static void setfile(File file, int val) {
         files[val] = file;
     }
@@ -54,6 +66,8 @@ public class Main {
         }
     }
     public static void OpenAffine(File file){
+        ChromCorr.log.info("saving file path " + file.getAbsolutePath());
+        ChromCorr.ij.prefs().put("ChromCorr_AffinePath", file.getAbsolutePath());
         DataInputStream is;
         try {
             is = new DataInputStream(new FileInputStream(file));

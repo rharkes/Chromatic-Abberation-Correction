@@ -11,14 +11,8 @@ import javafx.scene.text.Text;
 import javafx.stage.FileChooser;
 import javafx.stage.Stage;
 import org.scijava.Context;
-import org.scijava.log.LogService;
-import org.scijava.plugin.Parameter;
 
-public class RootLayoutController implements Initializable {
-
-    @Parameter
-    private LogService log;
-    
+public class RootLayoutController implements Initializable {    
     @FXML
     private Button csvButton;
     
@@ -103,6 +97,12 @@ public class RootLayoutController implements Initializable {
     }
     @Override
     public void initialize(URL location, ResourceBundle resources) {
+        A00.setText(Main.GetAffineS(0, 0));
+        A01.setText(Main.GetAffineS(0, 1));
+        A10.setText(Main.GetAffineS(1, 0));
+        A11.setText(Main.GetAffineS(1, 1));
+        A20.setText(Main.GetAffineS(2, 0));
+        A21.setText(Main.GetAffineS(2, 1));
     }
 
     public void setContext(Context context) {

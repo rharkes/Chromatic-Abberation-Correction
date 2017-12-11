@@ -4,17 +4,10 @@ import javafx.application.Platform;
 import javafx.embed.swing.JFXPanel;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
-import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.TilePane;
 import javax.swing.JFrame;
 import net.imagej.ImageJ;
-import GUI.RootLayoutController;
-import org.scijava.log.LogService;
-import org.scijava.plugin.Parameter;
 public class MainAppFrame extends JFrame {
-
-    @Parameter
-    private LogService log;
 
     private ImageJ ij;
 

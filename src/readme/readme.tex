@@ -1,0 +1,28 @@
+\documentclass{article}
+\usepackage[a4paper]{geometry}
+\usepackage{amsmath}
+\begin{document}
+\title{Chromatic Abberration Correction}
+\maketitle
+
+\section{Files}
+\subsection*{ChromCorr}
+Affine Transform.java \\
+ChromCorr.java \\
+Main.java \\
+csvread.java \\
+csvwrite.java
+\subsection*{GUI}
+MainApp.java \\
+MainAppFrame.java \\
+RootLayout.fxml \\
+RootLayoutController.java
+\section{Program Layout}
+ChromCorr is the main entry point to the plugin. Its run method is called when clicked and opens MainAppFrame. \\
+MainAppFrame injects into ImageJ and initializes a JFXPanel. It is filled with MainApp. \\
+MainApp gets content from RootLayout.fxml. \\
+RootLayout.fxml contains all GUI components, the events from the components are handled by RootLayoutController.java \\
+RootLayoutController redirects all calls to appropriate methods in Main.java \\
+Main.java contains all methods and uses AffineTransform, csvread, and csvwrite.
+
+\end{document}
